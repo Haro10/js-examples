@@ -19,10 +19,15 @@ const doCheatToTakeEverything = {
     }
 }
 
-const Conuntry1 = function(){}
+const mixin = (objectTarget, ...items) => {
+    Object.assign(objectTarget, ...items)
+}
 
-Object.assign(Conuntry1.prototype, mustRestructure, mustHaveAtomicBomb)
+const Country1 = function(){}
 
-const Conuntry2 = function(){}
+mixin(Country1.prototype, mustRestructure, mustHaveAtomicBomb)
+// Object.assign(Country1.prototype, mustRestructure, mustHaveAtomicBomb)
 
-Object.assign(Conuntry2.prototype, mustRestructure, doCheatToTakeEverything)
+const Country2 = function(){}
+mixin(Country2.prototype, mustRestructure, mustHaveAtomicBomb)
+// Object.assign(Country2.prototype, mustRestructure, doCheatToTakeEverything)
