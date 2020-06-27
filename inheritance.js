@@ -1,10 +1,15 @@
-function Leader(){}
+function Leader(rank = 'high'){
+    this.rankSalary = rank;
+}
 
 Leader.prototype.createPlan = function(){
     console.log('create a plan')
 }
 
-function TechLeader(){}
+function TechLeader(rank){
+    // if not have this keyword -> point to window
+    Leader(this, rank);
+}
 
 //Before reassign TechLeader.prototype.constructor = TeachLeader;
 //new TechLeader.prototype.constructor() = new TeachLeader;
@@ -17,4 +22,4 @@ TechLeader.prototype.reviewCode = function(){
     console.log('review code')
 }
 
-const tl1 = new TechLeader();
+const tl1 = new TechLeader('fucking awesome rank');
