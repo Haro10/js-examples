@@ -8,7 +8,7 @@ Leader.prototype.createPlan = function(){
 
 function TechLeader(rank){
     // if not have this keyword -> point to window
-    Leader(this, rank);
+    Leader.call(this, rank);
 }
 
 const extend = (Child, Parent) => {
@@ -27,6 +27,13 @@ extend(TechLeader, Leader);
 
 TechLeader.prototype.reviewCode = function(){
     console.log('review code')
+}
+
+//Overriding createPlan method
+TechLeader.prototype.createPlan = function(){
+    //alo call the createPlan() of Leader (the parent objetc)
+    Leader.prototype.createPlan.call(this)
+    console.log('create a plan by techleader')
 }
 
 const tl1 = new TechLeader('fucking awesome rank');
