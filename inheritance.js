@@ -11,12 +11,19 @@ function TechLeader(rank){
     Leader(this, rank);
 }
 
-//Before reassign TechLeader.prototype.constructor = TeachLeader;
-//new TechLeader.prototype.constructor() = new TeachLeader;
-TechLeader.prototype = Object.create(Leader.prototype)
+const extend = (Child, Parent) => {
+    Child.prototype = Object.create(Parent.prototype)
+    Child.prototype.constructor = Child;
+}
 
-//reassign constructor from Leader's constructor to TechLeader's constructor
-TechLeader.prototype.constructor = TechLeader;
+extend(TechLeader, Leader);
+
+// //Before reassign TechLeader.prototype.constructor = TeachLeader;
+// //new TechLeader.prototype.constructor() = new TeachLeader;
+// TechLeader.prototype = Object.create(Leader.prototype)
+
+// //reassign constructor from Leader's constructor to TechLeader's constructor
+// TechLeader.prototype.constructor = TechLeader;
 
 TechLeader.prototype.reviewCode = function(){
     console.log('review code')
