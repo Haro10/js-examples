@@ -26,6 +26,11 @@ function HtmlSelectElement(items = []) {
  */
 HtmlSelectElement.prototype = new HtmlElement();
 
+//But now HtmlSlectedElement's constructor is equal HtmlElement's constructor
+console.log(HtmlSelectElement.prototype.constructor);
+
+//=> so must reassign to HtmlSelectedElent's constructor
+HtmlSelectElement.prototype.constructor = HtmlSelectElement;
 
 /*
  HtmlSelectElement {items: Array(0), add: ƒ, removeItem: ƒ}
