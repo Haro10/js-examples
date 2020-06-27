@@ -20,16 +20,21 @@ function HtmlElement() {
     };
 
     this.render = () => {
-        const selectEls = document.createElement('select');
-        this.items.forEach((item) => {
-         const option = document.createElement("option");
-          const optioncContent = document.createTextNode(item);
-          option.appendChild(optioncContent);
-         selectEls.appendChild(option);
+        //ES6 style
+     return `
+        <select>${this.items.map(item => `
+          <option>${item}</option>`).join('')}
+        </select>`;
+    //     const selectEls = document.createElement('select');
+    //     this.items.forEach((item) => {
+    //      const option = document.createElement("option");
+    //       const optioncContent = document.createTextNode(item);
+    //       option.appendChild(optioncContent);
+    //      selectEls.appendChild(option);
         
-    })
-     console.log("render's selectEls", selectEls);
-    }
+    // })
+    //  console.log("render's selectEls", selectEls);
+    // }
   }
 
 
